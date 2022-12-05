@@ -44,6 +44,7 @@ export default function SignUp() {
       delete formDataCopy.password; //delete password
       formDataCopy.timestamp = serverTimestamp(); //add timestamp
       await setDoc(doc(db, "users", user.uid), formDataCopy);
+      // toast.success("Sign up was successful")
       navigate("/"); //after submit navigate to homepage
       console.log(user);
     } catch (error) {
@@ -104,7 +105,7 @@ export default function SignUp() {
               <p className="mb-6">
                 Have an account?
                 <Link
-                  to="/sign-up"
+                  to="/sign-in"
                   className="text-red-600 hover:text-red-700 transition duration-200 ease-in-out ml-1"
                 >
                   Sign In
