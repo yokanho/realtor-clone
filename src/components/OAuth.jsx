@@ -14,7 +14,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      //check for the user if already exist
+      //check for the user if already exist or add it to the database
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
       if (!docSnap.exists()) {
@@ -27,7 +27,6 @@ export default function OAuth() {
       navigate("/");
     } catch (error) {
       toast.error("Could not authorized with Google");
-      console.log(error);
     }
   }
 

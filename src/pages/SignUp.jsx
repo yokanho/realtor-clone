@@ -41,12 +41,11 @@ export default function SignUp() {
       updateProfile(auth.currentUser, { displayName: name }); // firebase function
       const user = userCredential.user; //
       const formDataCopy = { ...formData }; //extract data from formData
-      delete formDataCopy.password; //delete password
+      delete formDataCopy.password; //delete password in the firestore database
       formDataCopy.timestamp = serverTimestamp(); //add timestamp
       await setDoc(doc(db, "users", user.uid), formDataCopy);
       // toast.success("Sign up was successful")
       navigate("/"); //after submit navigate to homepage
-      console.log(user);
     } catch (error) {
       toast.error("Something went wrong with the registration!");
     }
