@@ -51,7 +51,7 @@ export default function SignIn() {
           />
         </div>
         <div className="w-full md:w-[67%] lg:w-[40%] lg:ml-20">
-          <form onClick={onSubmit}>
+          <form onSubmit={onSubmit}>
             <input
               type="email"
               id="email"
