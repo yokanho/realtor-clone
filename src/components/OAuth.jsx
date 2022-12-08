@@ -14,7 +14,7 @@ export default function OAuth() {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      //check for the user if already exist or add it to the database
+      //check for the user if already exist or elseadd it to the database
       const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
       if (!docSnap.exists()) {
@@ -32,7 +32,7 @@ export default function OAuth() {
 
   return (
     <button
-      type="button" //since it is wrap under form element,got submit by default,  we need to add this to prevent the browser auto reload once clicked
+      type="button" //since it is wrap under form element,have submit function by default,  we need to add this to prevent the browser auto reload once clicked
       onClick={onGoogleClick}
       className="flex items-center justify-center w-full bg-red-700 text-white px-7 py-4 uppercase text-sm font-medium hover:bg-red-800 active:bg-red-900 shadow-md hover:shadow-lg active:shadow-lg transition duration-150 ease-in-out rounded"
     >
